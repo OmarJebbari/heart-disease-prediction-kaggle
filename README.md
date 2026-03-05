@@ -22,7 +22,7 @@ The dataset contains features related to patient demographics, health metrics, a
 ### Target Distribution
 The dataset was analyzed to understand class distribution:
 
-![Target Distribution](image/target_distribution.png)
+![Target Distribution](Images/target_distribution.png)
 
 ---
 
@@ -45,22 +45,22 @@ Several baseline models were trained and evaluated on ROC-AUC and Log Loss:
 ### Feature Importance (Random Forest)
 A Random Forest model was used to estimate the most influential features:
 
-![Random Forest Feature Importance](Image/random_forest_feature_importance.png)
+![Random Forest Feature Importance](Images/random_forest_feature_importance.png)
 
 ### ROC Curves (Baseline Models)
 Performance comparison of baseline models using ROC curves:
 
-![Baseline Model ROC Curves](Image/baseline_model_roc_curves.png)
+![Baseline Model ROC Curves](Images/baseline_model_roc_curves.png)
 
 ### Confusion Matrix (XGBoost)
 Example confusion matrix for the XGBoost model:
 
-![XGBoost Confusion Matrix](Image/xgboost_confusion_matrix.png)
+![XGBoost Confusion Matrix](Images/xgboost_confusion_matrix.png)
 
 ### Feature Importance (XGBoost)
 XGBoost feature importances for interpretability:
 
-![XGBoost Feature Importance](Image/xgboost_feature_importance.png)
+![XGBoost Feature Importance](Images/xgboost_feature_importance.png)
 
 ---
 
@@ -71,12 +71,12 @@ A Stacked Ensemble combines Random Forest, Gradient Boosting, XGBoost, and Light
 ### ROC Curve (Ensemble vs Base Models)
 Comparison between base models and stacked ensemble:
 
-![Ensemble vs Models ROC Curve](Image/ensemble_vs_models_roc_curve.png)
+![Ensemble vs Models ROC Curve](Images/ensemble_vs_models_roc_curve.png)
 
 ### Confusion Matrix (Stacked Model)
 Confusion matrix of the final stacked ensemble model:
 
-![Stacked Model Confusion Matrix](Image/stacked_model_confusion_matrix.png)
+![Stacked Model Confusion Matrix](Images/stacked_model_confusion_matrix.png)
 
 ---
 
@@ -87,17 +87,17 @@ SHAP (SHapley Additive exPlanations) was used to explain predictions from the be
 ### SHAP Summary Plot
 Overview of feature contributions:
 
-![SHAP Summary Plot](Image/shap_summary_plot.png)
+![SHAP Summary Plot](Images/shap_summary_plot.png)
 
 ### SHAP Feature Importance
 Feature importance based on SHAP values:
 
-![SHAP Feature Importance](Image/shap_feature_importance.png)
+![SHAP Feature Importance](Images/shap_feature_importance.png)
 
 ### SHAP Dependence Plot
 Illustrates the interaction effect of a key feature:
 
-![SHAP Dependence Plot](Image/shap_dependence_plot.png)
+![SHAP Dependence Plot](Images/shap_dependence_plot.png)
 
 ---
 
@@ -113,17 +113,8 @@ These metrics indicate strong predictive performance for Heart Disease detection
 
 ---
 
-## Submission
 
-The predictions for the test set were saved in `submission.csv` and submitted to the [Kaggle Playground Series S6E2 Competition](https://www.kaggle.com/competitions/playground-series-s6e2/).
 
----
-
-## Notes
-
-- All images are stored in the `Image/` folder.  
-- Hyperparameter tuning, scaling, and ensemble strategies were applied for optimal performance.  
-- SHAP analysis provides interpretability for model predictions.
 
 ---
 
