@@ -22,7 +22,7 @@ The dataset contains features related to patient demographics, health metrics, a
 ### Target Distribution
 The dataset was analyzed to understand class distribution:
 
-![Target Distribution](Image/target_distribution.png)
+![Target Distribution](image/target_distribution.png)
 
 ---
 
