@@ -1,184 +1,131 @@
-# Heart Disease Prediction — Advanced Machine Learning Pipeline
+# Heart Disease Prediction Project
 
-## Project Overview
-
-This project builds an advanced machine learning pipeline to predict the presence of heart disease using clinical features.
-Multiple models were trained and compared, followed by ensemble stacking to maximize predictive performance.
-
-The final model achieved a **ROC-AUC score of ~0.955**, placing competitively on the leaderboard.
+This project demonstrates a complete workflow for predicting Heart Disease using machine learning, including data exploration, feature analysis, model training, ensemble learning, and explainability with SHAP.
 
 ---
 
-## Dataset
-
-The dataset contains clinical patient attributes used to predict heart disease presence.
-
-Features include physiological and diagnostic indicators.
-
-Dataset source: Kaggle
-
-Download dataset from Kaggle before running the notebook.
-
----
-
-## Project Structure
-
-```
-heart-disease-ml
-│
-├── notebook
-│   └── heart_disease_prediction.ipynb
-│
-├── images
-│   ├── target_distribution.png
-│   ├── feature_importance.png
-│   ├── roc_curve_models.png
-│   ├── confusion_matrix.png
-│   └── shap_summary.png
-│
-├── requirements.txt
-├── README.md
-└── .gitignore
-```
+## Table of Contents
+- [Dataset Overview](#dataset-overview)
+- [Exploratory Data Analysis (EDA)](#exploratory-data-analysis-eda)
+- [Baseline Models](#baseline-models)
+- [Ensemble & Stacked Models](#ensemble--stacked-models)
+- [Feature Importance & SHAP Analysis](#feature-importance--shap-analysis)
+- [Model Evaluation](#model-evaluation)
+- [Submission](#submission)
 
 ---
 
-## Exploratory Data Analysis
+## Dataset Overview
 
-The dataset was analyzed to understand class distribution and feature behavior.
+The dataset contains features related to patient demographics, health metrics, and risk factors. The target variable is `Heart Disease` (0 = absence, 1 = presence).  
 
 ### Target Distribution
+The dataset was analyzed to understand class distribution:
 
-![Target Distribution](Images/target_distribution.png)
-
----
-
-## Feature Importance
-
-A Random Forest model was used to estimate the most influential features.
-
-![Feature Importance](Images/feature_importance.png)
+![Target Distribution](Image/target_distribution.png)
 
 ---
 
-## Models Implemented
+## Exploratory Data Analysis (EDA)
 
-The following models were trained and evaluated:
-
-* Logistic Regression
-* Random Forest
-* Gradient Boosting
-* XGBoost
-* LightGBM
-
-Evaluation metric: **ROC-AUC**
+EDA was performed to examine missing values, feature distributions, and correlations between features. This step ensures the dataset is clean and ready for modeling.
 
 ---
 
-## Model Comparison
+## Baseline Models
 
-ROC curves were used to compare model performance.
+Several baseline models were trained and evaluated on ROC-AUC and Log Loss:
 
-![ROC Curve](Images/roc_curve_models.png)
+- Logistic Regression  
+- Random Forest  
+- Gradient Boosting  
+- XGBoost  
+- LightGBM  
+
+### Feature Importance (Random Forest)
+A Random Forest model was used to estimate the most influential features:
+
+![Random Forest Feature Importance](Image/random_forest_feature_importance.png)
+
+### ROC Curves (Baseline Models)
+Performance comparison of baseline models using ROC curves:
+
+![Baseline Model ROC Curves](Image/baseline_model_roc_curves.png)
+
+### Confusion Matrix (XGBoost)
+Example confusion matrix for the XGBoost model:
+
+![XGBoost Confusion Matrix](Image/xgboost_confusion_matrix.png)
+
+### Feature Importance (XGBoost)
+XGBoost feature importances for interpretability:
+
+![XGBoost Feature Importance](Image/xgboost_feature_importance.png)
 
 ---
 
-## Ensemble Learning
+## Ensemble & Stacked Models
 
-To improve performance, a **stacked ensemble model** was built using:
+A Stacked Ensemble combines Random Forest, Gradient Boosting, XGBoost, and LightGBM as base models, with Logistic Regression as the meta-learner.  
 
-Base models:
+### ROC Curve (Ensemble vs Base Models)
+Comparison between base models and stacked ensemble:
 
-* Random Forest
-* Gradient Boosting
-* XGBoost
-* LightGBM
+![Ensemble vs Models ROC Curve](Image/ensemble_vs_models_roc_curve.png)
 
-Meta-model:
+### Confusion Matrix (Stacked Model)
+Confusion matrix of the final stacked ensemble model:
 
-* Logistic Regression
+![Stacked Model Confusion Matrix](Image/stacked_model_confusion_matrix.png)
 
-This ensemble achieved the highest validation performance.
+---
+
+## Feature Importance & SHAP Analysis
+
+SHAP (SHapley Additive exPlanations) was used to explain predictions from the best-performing model:
+
+### SHAP Summary Plot
+Overview of feature contributions:
+
+![SHAP Summary Plot](Image/shap_summary_plot.png)
+
+### SHAP Feature Importance
+Feature importance based on SHAP values:
+
+![SHAP Feature Importance](Image/shap_feature_importance.png)
+
+### SHAP Dependence Plot
+Illustrates the interaction effect of a key feature:
+
+![SHAP Dependence Plot](Image/shap_dependence_plot.png)
 
 ---
 
 ## Model Evaluation
 
-Confusion matrix for the final stacked model:
+The final stacked ensemble model achieved:
 
-![Confusion Matrix](Images/confusion_matrix.png)
+- ROC-AUC: 0.9551  
+- Log Loss: 0.2786  
+- Optimal F1-Score Threshold: 0.392
 
----
-
-## Model Explainability
-
-SHAP (SHapley Additive exPlanations) was used to interpret model predictions and feature impact.
-
-![SHAP Summary](Images/shap_summary.png)
+These metrics indicate strong predictive performance for Heart Disease detection.
 
 ---
 
-## Final Performance
+## Submission
 
-Validation Metrics:
-
-ROC-AUC: **0.9551**
-
-Log Loss: **0.2786**
-
-The ensemble model significantly outperformed baseline models.
+The predictions for the test set were saved in `submission.csv` and submitted to the [Kaggle Playground Series S6E2 Competition](https://www.kaggle.com/competitions/playground-series-s6e2/).
 
 ---
 
-## Installation
+## Notes
 
-Clone repository:
-
-```
-git clone https://github.com/yourusername/heart-disease-ml.git
-cd heart-disease-ml
-```
-
-Install dependencies:
-
-```
-pip install -r requirements.txt
-```
+- All images are stored in the `Image/` folder.  
+- Hyperparameter tuning, scaling, and ensemble strategies were applied for optimal performance.  
+- SHAP analysis provides interpretability for model predictions.
 
 ---
 
-## Running the Project
-
-1. Download dataset from Kaggle
-2. Place `train.csv` and `test.csv` in project root
-3. Open the notebook
-
-```
-notebook/heart_disease_prediction.ipynb
-```
-
-Run all cells to reproduce results and generate predictions.
-
----
-
-## Technologies Used
-
-Python ecosystem:
-
-* pandas
-* numpy
-* scikit-learn
-* XGBoost
-* LightGBM
-* SHAP
-* matplotlib
-* seaborn
-* plotly
-
----
-
-## Author
-
-Omar Jebbari
-
-Engineering Student — Big Data & AI
+**Author:** Omar Jebbari  
+**Date:** 2026-03-05  
