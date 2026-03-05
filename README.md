@@ -49,7 +49,7 @@ The dataset was analyzed to understand class distribution and feature behavior.
 
 ### Target Distribution
 
-![Target Distribution](images/target_distribution.png)
+![Target Distribution](Images/target_distribution.png)
 
 ---
 
@@ -57,7 +57,7 @@ The dataset was analyzed to understand class distribution and feature behavior.
 
 A Random Forest model was used to estimate the most influential features.
 
-![Feature Importance](images/feature_importance.png)
+![Feature Importance](Images/feature_importance.png)
 
 ---
 
@@ -79,7 +79,7 @@ Evaluation metric: **ROC-AUC**
 
 ROC curves were used to compare model performance.
 
-![ROC Curve](images/roc_curve_models.png)
+![ROC Curve](Images/roc_curve_models.png)
 
 ---
 
@@ -106,7 +106,7 @@ This ensemble achieved the highest validation performance.
 
 Confusion matrix for the final stacked model:
 
-![Confusion Matrix](images/confusion_matrix.png)
+![Confusion Matrix](Images/confusion_matrix.png)
 
 ---
 
@@ -114,7 +114,7 @@ Confusion matrix for the final stacked model:
 
 SHAP (SHapley Additive exPlanations) was used to interpret model predictions and feature impact.
 
-![SHAP Summary](images/shap_summary.png)
+![SHAP Summary](Images/shap_summary.png)
 
 ---
 
